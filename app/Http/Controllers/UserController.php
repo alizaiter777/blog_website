@@ -36,6 +36,26 @@ class UserController extends Controller
         session()->flash('error','Some problem occure');
         return redirect(route('admin.users/create'));
      }
+
+     
+}
+    
+public function delete($id){
+    $users=User::findOrFail($id)->delete();
+    if($users){
+        session()->flash('success','User Deleted Successfully');
+        return redirect(route('admin/users'));
+
+    }
+    else{
+        session()->flash('error','User Not Delete Successfully');
+        return redirect(route('admin/users'));
+    }
+}
 }
 
-}
+
+
+
+
+

@@ -23,6 +23,7 @@ Route::middleware(['auth','admin'])->group(function(){
     route::get('admin/users',[UserController::class,'index'])->name('admin/users');
     route::get('admin/users/create',[UserController::class,'create'])->name('admin/users/create');
     route::post('admin/users/save',[UserController::class,'save'])->name('admin/users/save');
+    route::get('admin/users/delete/{id}',[UserController::class,'delete'])->name('admin/users/delete');
 
 });
 

@@ -46,8 +46,7 @@
                         <td class="align-middle">{{$user->updated_at}}</td>
                         <td class="align-middle">
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="" type="button" class="btn btn-secondary">Edit</a>
-                                <a href="" type="button" class="btn btn-danger">Delete</a>
+                                <a href="{{route('admin/users/delete',['id'=>$user->id])}}" type="button" class="btn btn-danger">Delete</a>
                               </div>
                          </td>
                     </tr>
