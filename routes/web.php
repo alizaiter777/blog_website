@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,7 +18,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth','admin'])->group(function(){
+    route::get('admin/dashboard',[HomeController::class,'index'])->name('admin/dashboard');
+    route::get('admin/users',[UserController::class,'index'])->name('admin/users');
+    route::get('admin/users/create',[UserController::class,'create'])->name('admin/users/create');
+    route::post('admin/users/save',[UserController::class,'save'])->name('admin/users/save');
+
+});
+
 require __DIR__.'/auth.php';
 
-route::get('admin/dashboard',[HomeController::class,'index'])->
-     middleware(['auth','admin']);
+
+    
