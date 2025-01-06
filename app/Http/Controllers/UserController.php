@@ -8,7 +8,10 @@ use App\Models\User;
 class UserController extends Controller
 {
    public function index(){
-     return view('admin.users.home');
+    $users=User::orderBy('id','desc')->get();
+    $total=User::count();
+
+     return view('admin.users.home',compact(['users','total']));
    }
 
    public function create(){
