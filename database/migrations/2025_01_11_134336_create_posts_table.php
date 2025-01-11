@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('Title');
-            $table->string('Content');
+            $table->string('title');
+            $table->string('content');
             $table->string('image')->nullable();
     
             // Foreign key columns

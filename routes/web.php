@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,6 +36,15 @@ Route::middleware(['auth','admin'])->group(function(){
     route::get('admin/categories/delete/{id}',[CategoryController::class,'delete'])->name('admin/categories/delete');
     route::get('admin/categories/edit/{id}',[CategoryController::class,'edit'])->name('admin/categories/edit');
     route::put('admin/categories/edit/{id}',[CategoryController::class,'update'])->name('admin/categories/update');
+
+    route::get('admin/posts',[PostController::class,'index'])->name('admin/posts');
+    route::get('admin/posts/create',[PostController::class,'create'])->name('admin/posts/create');
+    route::post('admin/posts/save',[PostController::class,'save'])->name('admin/posts/save');
+    route::get('admin/posts/edit/{id}',[PostController::class,'edit'])->name('admin/posts/edit');
+    route::put('admin/posts/edit/{id}',[PostController::class,'update'])->name('admin/posts/update');
+    route::get('admin/posts/delete/{id}',[PostController::class,'delete'])->name('admin/posts/delete');
+
+    
 
 });
 
