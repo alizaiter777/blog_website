@@ -6,11 +6,17 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TemplateController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+
+Route::get('/',[TemplateController::class,'index']);
+
+Route::get('/', [PostController::class, 'showPostsToFront'])->name('home');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

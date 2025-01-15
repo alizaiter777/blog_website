@@ -90,4 +90,12 @@ public function delete($id){
         return redirect(route('admin/posts'));
     }
 }
+
+public function showPostsToFront()
+{
+    // Fetch posts with their related user and category
+    $posts = Post::with(['user', 'category'])->orderBy('id', 'desc')->paginate(6);
+
+    return view('frontend.home', compact('posts'));
+}
 }
