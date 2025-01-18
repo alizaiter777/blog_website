@@ -47,27 +47,31 @@
                     <tr>
                         <td class="align-middle">{{$loop->iteration}}</td>
                         <td class="align-middle">{{$post->user->id ?? 'N/A' }}</td> <!-- Display user's name -->
-                        <td class="align-middle">{{$post->category->id ?? 'N/A' }}</td> <!-- Display user's name -->
-
+                        <td class="align-middle">{{$post->category->id ?? 'N/A' }}</td> <!-- Display category's name -->
                         <td class="align-middle">{{$post->title}}</td>
                         <td class="align-middle">{{$post->content}}</td>
-                        <td class="align-middle">{{$post->image}}</td>
+                        <td class="align-middle">
+                            @if ($post->image)
+                                <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image" style="max-width: 100px; height: auto;">
+                            @else
+                                N/A
+                            @endif
+                        </td>
                         <td class="align-middle">{{$post->created_at}}</td>
                         <td class="align-middle">{{$post->updated_at}}</td>
                         <td class="align-middle">
-                            
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a href="{{route('admin/posts/edit',['id'=>$post->id])}}" type="button" class="btn btn-secondary">Edit</a>
                                 <a href="{{route('admin/posts/delete',['id'=>$post->id])}}" type="button" class="btn btn-danger">Delete</a>
-
-                              </div>
-                         </td>
+                            </div>
+                        </td>
                     </tr>
-                    @empty
+                @empty
                     <tr>
-                        <td class="text-center" colspan="5">Post not found</td>
-                    </tr>     
-                    @endforelse  
+                        <td class="text-center" colspan="9">Post not found</td>
+                    </tr>
+                @endforelse
+                
                  </tbody>
 
             </table>

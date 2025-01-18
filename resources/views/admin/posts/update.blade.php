@@ -39,15 +39,17 @@
                           </div>
                      </div>
 
-                     <div class="row">
-                        <div class="col mb-3">
-                            <label class="form-label"> image</label>
-                            <input type="text" name="image" class="form-control" placeholder="image" value="{{$posts->image}}">
-                             @error('image')
-                             <span class="text-danger">{{$message}}</span>
-                              @enderror
-                          </div>
-                     </div>
+                     <div class="row mb-3">
+                        <div class="col">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" class="form-control" placeholder="image" value="{{$posts->image}}">
+                            @error('image')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+
+                     
 
                         <label for="categoryId">Category</label>
                         <select name="categoryId" id="categoryId" required>

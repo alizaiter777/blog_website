@@ -40,9 +40,10 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" name="image" class="from-control" placeholder="image">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" class="form-control" accept="image/*">
                             @error('image')
-                            <span class="text-danger">{{$message}}</span>
+                            <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>

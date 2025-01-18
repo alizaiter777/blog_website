@@ -14,6 +14,8 @@ use App\Http\Controllers\TemplateController;
 
 
 Route::get('/',[TemplateController::class,'index']);
+Route::get('/', [TemplateController::class, 'home'])->name('home');
+Route::get('/info/{id}', [TemplateController::class, 'info'])->name('info');
 
 Route::get('/', [PostController::class, 'showPostsToFront'])->name('home');
 

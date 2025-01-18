@@ -30,9 +30,15 @@ class PostController extends Controller
         $validation = $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'categoryId' => 'required|exists:categories,id', // Ensure category exists
         ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filePath = $file->store('uploads/posts', 'public'); // Store in the `storage/app/public/uploads/posts` directory
+            $validation['image'] = $filePath; // Save the file path
+        }
 
         // Automatically set the `userId` based on the logged-in user
         $validation['userId'] = auth()->id();
