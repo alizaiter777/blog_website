@@ -4,7 +4,7 @@
 
 @section('content')
 
-  <div class="flex items-center justify-center min-h-screen bg-gray-50">
+<div class="flex items-center justify-center min-h-screen bg-gray-50">
   <div class="max-w-4xl w-full bg-white p-6 rounded-lg shadow-md">
       <!-- Tag -->
       <a href="#" class="inline-block bg-black text-white text-xs uppercase px-3 py-1 rounded-full mb-4">Travel</a>
@@ -30,9 +30,29 @@
       <p class="text-gray-700 leading-relaxed">
         {{ $post->content }}      </p>
   </div>
+
+
+        <!-- Comments Section -->
+        <div class="comments-section mt-6">
+            <h3 class="text-xl font-semibold mb-4">Comments</h3>
+            
+            <!-- Display comments -->
+            @foreach($post->comments as $comment)
+                <div class="comment mb-4 p-4 border border-gray-200 rounded-lg">
+                    <p><strong>{{ $comment->user->name }}</strong> </p>
+                    <p>{{ $comment->content }}</p>
+                    <small class="text-gray-500">{{ $comment->created_at->format('F d, Y') }}</small>
+                </div>
+            @endforeach
+
+            <!-- Comment Form -->
+            <form method="POST" action="{{ route('addComment', $post->id) }}">
+                @csrf
+                <textarea name="content" placeholder="Add your comment..." class="w-full p-3 border border-gray-300 rounded-md" required></textarea>
+                <button type="submit" class="mt-2 bg-black text-black py-2 px-4 rounded">post</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 @endsection
-
-
-

@@ -19,6 +19,8 @@ Route::get('/info/{id}', [TemplateController::class, 'info'])->name('info');
 
 Route::get('/', [PostController::class, 'showPostsToFront'])->name('home');
 
+Route::post('/post/{id}/comment', [TemplateController::class, 'addComment'])->name('addComment');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
