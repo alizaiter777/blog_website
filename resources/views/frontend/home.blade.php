@@ -18,7 +18,7 @@
                     </div>
                     <div class="blog-post-content">
                         <div class="blog-post-tag">
-                            <a href="category.html">Travel</a>
+                            <a href="category.html">{{ $post->category->name }}</a>
                         </div>
                         <div class="blog-post-title">
                             <p class="card-text">
@@ -35,6 +35,18 @@
                         <p>
                             {{ Str::limit($post->content, 100) }}
                         </p>
+                        <p class="mt-2">
+                          <!-- Like Count with Thumbs Up Icon -->
+                          <i class="fas fa-thumbs-up text-success me-1"></i>
+                          <span class="like-count">{{ $post->likes->where('is_like', true)->count() }}</span>
+                      
+                          <!-- Separator -->
+                          |
+                      
+                          <!-- Unlike Count with Thumbs Down Icon -->
+                          <i class="fas fa-thumbs-down text-danger me-1"></i>
+                          <span class="unlike-count">{{ $post->likes->where('is_like', false)->count() }}</span>
+                      </p>
                         <a  href="{{ route('info', ['id' => $post->id]) }}" class="blog-post-action">
                             read more <i class="fa fa-angle-right"></i>
                         </a>

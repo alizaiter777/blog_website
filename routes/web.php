@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\LikeController;
+
 
 
 
@@ -20,7 +22,8 @@ Route::get('/info/{id}', [TemplateController::class, 'info'])->name('info');
 Route::get('/', [PostController::class, 'showPostsToFront'])->name('home');
 
 Route::post('/post/{id}/comment', [TemplateController::class, 'addComment'])->name('addComment');
-
+Route::post('/post/{post}/like', [PostController::class, 'like'])->name('post.like');
+Route::post('/post/{post}/unlike', [PostController::class, 'unlike'])->name('post.unlike');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

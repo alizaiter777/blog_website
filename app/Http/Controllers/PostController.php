@@ -104,4 +104,25 @@ public function showPostsToFront()
 
     return view('frontend.home', compact('posts'));
 }
+
+public function like(Post $post)
+{
+    $post->likes()->updateOrCreate(
+        ['user_id' => auth()->id()],
+        ['is_like' => true]
+    );
+
+    return response()->json(['message' => 'Liked successfully', 'like_count' => $post->likes->where('is_like', true)->count(), 'unlike_count' => $post->likes->where('is_like', false)->count()]);
+}
+
+public function unlike(Post $post)
+{
+    $post->likes()->updateOrCreate(
+        ['user_id' => auth()->id()],
+        ['is_like' => false]
+    );
+
+    return response()->json(['message' => 'Unliked successfully', 'like_count' => $post->likes->where('is_like', true)->count(), 'unlike_count' => $post->likes->where('is_like', false)->count()]);
+}
+
 }
