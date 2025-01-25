@@ -112,7 +112,9 @@ public function like(Post $post)
         ['is_like' => true]
     );
 
-    return response()->json(['message' => 'Liked successfully', 'like_count' => $post->likes->where('is_like', true)->count(), 'unlike_count' => $post->likes->where('is_like', false)->count()]);
+    return response()->json(['message' => 'Liked successfully', 
+    'like_count' => $post->likes->where('is_like', true)->count(), 
+    'unlike_count' => $post->likes->where('is_like', false)->count()]);
 }
 
 public function unlike(Post $post)
@@ -122,7 +124,9 @@ public function unlike(Post $post)
         ['is_like' => false]
     );
 
-    return response()->json(['message' => 'Unliked successfully', 'like_count' => $post->likes->where('is_like', true)->count(), 'unlike_count' => $post->likes->where('is_like', false)->count()]);
+    return response()->json(['message' => 'Unliked successfully', 
+    'like_count' => $post->likes->where('is_like', true)->count(), 
+    'unlike_count' => $post->likes->where('is_like', false)->count()]);
 }
 
 }

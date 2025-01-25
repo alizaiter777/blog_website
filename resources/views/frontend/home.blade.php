@@ -82,10 +82,12 @@
               </ul>
             </div>
             <div class="featured-post-thumb">
-              <img src="images/featured-post.jpg" alt="feature-post-thumb" />
+              <img src="https://img.freepik.com/free-vector/hand-drawn-digital-natives-illustration_23-2151197121.jpg"
+               alt="feature-post-thumb" />
             </div>
           </article>
         </div>
       </div>
     </div>
 @endsection
+
