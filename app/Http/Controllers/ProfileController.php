@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Post;
 
 class ProfileController extends Controller
 {
@@ -17,7 +18,9 @@ class ProfileController extends Controller
 
      public function show()
     {
-        return view('profile.profile');
+        $posts = Post::where('userId', auth()->id())->get();
+
+        return view('profile.profile',compact('posts'));
     }
     
     public function edit(Request $request): View
