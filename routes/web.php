@@ -25,6 +25,8 @@ Route::post('/post/{id}/comment', [TemplateController::class, 'addComment'])->na
 Route::post('/post/{post}/like', [PostController::class, 'like'])->name('post.like');
 Route::post('/post/{post}/unlike', [PostController::class, 'unlike'])->name('post.unlike');
 
+Route::get('/post/{id}', [PostController::class, 'showPost'])->name('post.show');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

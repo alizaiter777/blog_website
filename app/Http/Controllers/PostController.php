@@ -102,7 +102,17 @@ public function showPostsToFront()
     // Fetch posts with their related user and category
     $posts = Post::with(['user', 'category'])->orderBy('id', 'desc')->paginate(6);
 
-    return view('frontend.home', compact('posts'));
+    $trendingPosts = Post::with(['likes' => function ($query) {
+        $query->where('is_like', true);
+    }])
+        ->withCount(['likes as like_count' => function ($query) {
+            $query->where('is_like', true);
+        }])
+        ->orderBy('like_count', 'desc') // Sort by highest is_like count
+        ->limit(5) // Only take the top 5
+        ->get();
+
+    return view('frontend.home', compact('posts', 'trendingPosts'));
 }
 
 public function like(Post $post)

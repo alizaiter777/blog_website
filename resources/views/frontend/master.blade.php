@@ -84,6 +84,12 @@
         </div>
     </section>
 
+    <section class="trending">
+        <div class="container">
+            @yield('trending')
+        </div>
+    </section>
+
     <!-- Instagram Section -->
     <section class="instagram">
         <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> <span>@Mary_Astor</span></a>
