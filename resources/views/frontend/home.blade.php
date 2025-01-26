@@ -99,12 +99,15 @@
                           </div>
                       </div>
                   @endforeach
+                
               </div>
           </div>
       </div>
   </div>
 </section>
+{{ $posts->links('vendor.pagination.default') }}
 @endsection
+
 
 
 

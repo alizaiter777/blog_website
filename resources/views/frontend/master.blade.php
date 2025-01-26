@@ -46,7 +46,7 @@
                 
                     @auth
                         <!-- User is logged in -->
-                        <li class="nav-item"><a class="nav-link" href="{{ url('/profile') }}">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('profile.show') }}">Profile</a></li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" 
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

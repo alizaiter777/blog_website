@@ -12,9 +12,6 @@ use App\Http\Controllers\LikeController;
 
 
 
-
-
-
 Route::get('/',[TemplateController::class,'index']);
 Route::get('/', [TemplateController::class, 'home'])->name('home');
 Route::get('/info/{id}', [TemplateController::class, 'info'])->name('info');
@@ -32,7 +29,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
@@ -53,8 +52,7 @@ Route::middleware(['auth','admin'])->group(function(){
     route::put('admin/categories/edit/{id}',[CategoryController::class,'update'])->name('admin/categories/update');
 
     route::get('admin/posts',[PostController::class,'index'])->name('admin/posts');
-    route::get('admin/posts/create',[PostController::class,'create'])->name('admin/posts/create');
-    route::post('admin/posts/save',[PostController::class,'save'])->name('admin/posts/save');
+   
     route::get('admin/posts/edit/{id}',[PostController::class,'edit'])->name('admin/posts/edit');
     route::put('admin/posts/edit/{id}',[PostController::class,'update'])->name('admin/posts/update');
     route::get('admin/posts/delete/{id}',[PostController::class,'delete'])->name('admin/posts/delete');
@@ -62,7 +60,8 @@ Route::middleware(['auth','admin'])->group(function(){
     
 
 });
-
+route::get('admin/posts/create',[PostController::class,'create'])->name('admin/posts/create');
+route::post('admin/posts/save',[PostController::class,'save'])->name('admin/posts/save');
 require __DIR__.'/auth.php';
 
 

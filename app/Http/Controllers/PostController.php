@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category; // Import Category model
+use Illuminate\Support\Facades\Auth;
+
 
 class PostController extends Controller
 {
@@ -49,7 +51,11 @@ class PostController extends Controller
         // Handle the response
         if ($data) {
             session()->flash('success', 'Post Added Successfully');
-            return redirect(route('admin/posts')); // Correct route format
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.posts'); // Redirect to admin posts
+            } else {
+                return redirect()->route('profile.show'); // Redirect to profile page
+            }
         } else {
             session()->flash('error', 'Some Problem Occurred');
             return redirect(route('admin/posts/create')); // Correct route format
@@ -109,7 +115,7 @@ public function showPostsToFront()
             $query->where('is_like', true);
         }])
         ->orderBy('like_count', 'desc') // Sort by highest is_like count
-        ->limit(5) // Only take the top 5
+        ->limit(3) // Only take the top 5
         ->get();
 
     return view('frontend.home', compact('posts', 'trendingPosts'));
