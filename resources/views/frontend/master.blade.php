@@ -62,11 +62,8 @@
                     @endauth
                 </ul>
                 <!-- Social Links -->
-                <ul class="main-nav-social">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                </ul>
+               
+              
             </div>
         </div>
     </nav>
@@ -77,6 +74,24 @@
         @yield('featured')
     </section>
 
+    <div class="col-md-4 ms-auto">
+        <form method="get" action="/search">
+            <div class="input-group input-group-sm">
+                <input 
+                    type="text" 
+                    class="form-control rounded-start" 
+                    name="search" 
+                    placeholder="Search..." 
+                    value="{{ request()->input('search') ?? '' }}"
+                    aria-label="Search">
+                <button 
+                    type="submit" 
+                    class="btn btn-primary rounded-end">Search</button>
+            </div>
+        </form>
+    </div>
+    
+    
     <!-- Main Content -->
     <section class="content">
         <div class="container">

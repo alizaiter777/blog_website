@@ -21,7 +21,11 @@
                           </div>
                           <div class="blog-post-content">
                               <div class="blog-post-tag">
-                                  <a href="category.html">{{ $post->category->name }}</a>
+                                @if ($post->category)
+                                    <a href="{{ route('categories.show', $post->category->id) }}" class="btn btn-primary btn-sm">
+                                        {{ $post->category->name }}
+                                    </a>
+                                @endif
                               </div>
                               <div class="blog-post-title">
                                   <p class="card-text">
@@ -62,51 +66,52 @@
 
           <!-- Trending Posts Column -->
           <div class="col-lg-4">
-              <div class="blog-post-widget">
-                  <div class="latest-widget-title">
-                      <h2>Trending Posts</h2>
-                  </div>
-
-                  @foreach ($trendingPosts as $trending)
-                      <div class="latest-widget">
-                          <div class="latest-widget-thum">
-                              <a href="{{ route('post.show', $trending->id) }}">
-                                <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="{{ $post->title }}">
-                              </a>
-                              <div class="icon">
-                                  <a href="{{ route('post.show', $trending->id) }}">
-                                      <img src="images/blog/icon.svg" alt="icon" />
-                                  </a>
-                              </div>
-                          </div>
-                          <div class="latest-widget-content">
-                              <div class="content-title">
-                                  <a href="{{ route('post.show', $trending->id) }}">{{ $trending->title }}</a>
-                              </div>
-                              <div class="content-meta">
-                                  <ul>
-                                      
-                                      <li>
-                                          <!-- Display Like Count -->
-                                          <i class="fas fa-thumbs-up text-success me-1"></i>
-                                          <span class="like-count">{{ $trending->like_count }}</span>
-                                      </li>
-                                  </ul>
-                                  <a href="{{ route('info', ['id' => $post->id]) }}" class="blog-post-action">
+            <div class="blog-post-widget">
+                <div class="latest-widget-title">
+                    <h2>Trending Posts</h2>
+                </div>
+        
+                @foreach ($trendingPosts as $trending)
+                    <div class="latest-widget">
+                        <div class="latest-widget-thum">
+                            <a href="{{ route('post.show', $trending->id) }}">
+                                <img src="{{ asset('storage/' . $trending->image) }}" class="card-img-top" alt="{{ $trending->title }}">
+                            </a>
+                            <div class="icon">
+                                <a href="{{ route('post.show', $trending->id) }}">
+                                    <img src="images/blog/icon.svg" alt="icon" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="latest-widget-content">
+                            <div class="content-title">
+                                <a href="{{ route('post.show', $trending->id) }}">{{ $trending->title }}</a>
+                            </div>
+                            <div class="content-meta">
+                                <ul>
+                                    <li>
+                                        <!-- Display Like Count -->
+                                        <i class="fas fa-thumbs-up text-success me-1"></i>
+                                        <span class="like-count">{{ $trending->like_count }}</span>
+                                    </li>
+                                </ul>
+                                <a href="{{ route('info', ['id' => $trending->id]) }}" class="blog-post-action">
                                     read more <i class="fa fa-angle-right"></i>
                                 </a>
-                              </div>
-                          </div>
-                      </div>
-                  @endforeach
-                
-              </div>
-          </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+        
+            </div>
+        </div>
+        
       </div>
   </div>
 </section>
 {{ $posts->links('vendor.pagination.default') }}
 @endsection
+
 
 
 

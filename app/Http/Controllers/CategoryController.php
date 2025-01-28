@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Post;
 
 class CategoryController extends Controller
 {
@@ -71,4 +72,17 @@ class CategoryController extends Controller
             return redirect(route('admin/categories/update'));
         }
     }
+
+    public function show($id)
+{
+    // Fetch the category or throw a 404 if not found
+    $category = Category::findOrFail($id);
+
+    // Get all posts belonging to this category and order by id
+    $posts = Post::where('categoryId', $id)->orderBy('id', 'desc')->paginate(5); // Adjust pagination as needed
+
+    return view('categories.show', compact('category', 'posts'));
 }
+
+}
+

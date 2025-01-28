@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Category; // Import Category model
+use App\Models\Category; 
 use Illuminate\Support\Facades\Auth;
 
 
@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        // Fetch posts with user and category relationships
+        
         $posts = Post::with(['user', 'category'])->orderBy('id', 'asc')->get();
         $total = Post::count();
     
@@ -33,7 +33,7 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'categoryId' => 'required|exists:categories,id', // Ensure category exists
+            'categoryId' => 'required|exists:categories,id', 
         ]);
 
         if ($request->hasFile('image')) {
@@ -144,5 +144,36 @@ public function unlike(Post $post)
     'like_count' => $post->likes->where('is_like', true)->count(), 
     'unlike_count' => $post->likes->where('is_like', false)->count()]);
 }
+
+
+public function search(Request $request)
+{
+    $search = $request->input('search');
+
+    $posts = Post::with(['category', 'user'])
+        ->where('title', 'LIKE', "%{$search}%")
+        ->orWhere('content', 'LIKE', "%{$search}%")
+        ->orWhereHas('category', function ($query) use ($search) {
+            $query->where('name', 'LIKE', "%{$search}%");
+        })
+        ->orWhereHas('user', function ($query) use ($search) {
+            $query->where('name', 'LIKE', "%{$search}%");
+        })
+        ->orderBy('id', 'desc') 
+        ->paginate(5); 
+
+    $trendingPosts = Post::with(['likes' => function ($query) {
+        $query->where('is_like', true);
+    }])
+        ->withCount(['likes as like_count' => function ($query) {
+            $query->where('is_like', true);
+        }])
+        ->orderBy('like_count', 'desc') 
+        ->limit(3)
+        ->get();
+
+    return view('frontend.home', compact('posts', 'trendingPosts'));
+}
+
 
 }

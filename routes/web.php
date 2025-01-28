@@ -9,8 +9,10 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\LikeController;
 
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
-
+Route::get('/search',[PostController::class,'search']);
+Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categories.show');
 
 Route::get('/',[TemplateController::class,'index']);
 Route::get('/', [TemplateController::class, 'home'])->name('home');
