@@ -27,9 +27,20 @@
       </div>
       
       <!-- Content -->
-      <p class="text-gray-700 leading-relaxed">
-        {{ $post->content }}      </p>
+      
+      
+    
   </div>
+  <div class="container" style="max-width: 1000px;">
+    <p class="text-muted" style="word-wrap: break-word;">
+        {{ $post->content }}
+    </p>
+</div>
+
+
+
+
+
 
     <!-- Like  -->
 
@@ -50,6 +61,21 @@
           <i class="fas fa-thumbs-down me-1"></i> Unlike
       </button>
   </div>
+  <div class="col-md-4 ms-auto">
+
+<ul class="main-nav-social">
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(route('post.show', $post->id)) }}" target="_blank"><i class="fa fa-facebook"></i></a>
+        </li>
+        <li>
+            <a href="https://x.com/intent/tweet?url={{ urlencode(route('post.show', $post->id)) }}&text={{ $post->title }}" target="_blank"><i class="fa fa-twitter"></i></a>
+        </li>
+        <p>{{ $post->shares }} Shares</p>
+      </ul>
+      
+
+  </div>
+       
   
   <!-- Display like and unlike counts -->
   <p class="mt-2">

@@ -40,7 +40,7 @@
                                   </ul>
                               </div>
                               <p>
-                                  {{ Str::limit($post->content, 100) }}
+                                  {{ Str::limit($post->content, 20) }}
                               </p>
                               <p class="mt-2">
                                   <!-- Like Count with Thumbs Up Icon -->

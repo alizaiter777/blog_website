@@ -175,5 +175,17 @@ public function search(Request $request)
     return view('frontend.home', compact('posts', 'trendingPosts'));
 }
 
+public function share($id)
+{
+    $post = Post::findOrFail($id);
+
+    // Increment the shares count
+    $post->increment('shares');
+
+    return redirect()->route('post.show', $id)->with('message', 'Post shared successfully!');
+}
+
+
+
 
 }

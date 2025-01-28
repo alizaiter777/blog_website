@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\LikeController;
+Route::get('/post/share/{id}', [PostController::class, 'share'])->name('post.share');
 
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
