@@ -20,17 +20,18 @@
                               <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="{{ $post->title }}">
                           </div>
                           <div class="blog-post-content">
-                              <div class="blog-post-tag">
+                            <div class="blog-post-tag">
                                 @if ($post->category)
                                     <a href="{{ route('categories.show', $post->category->id) }}" class="btn btn-primary btn-sm">
                                         {{ $post->category->name }}
                                     </a>
                                 @endif
-                              </div>
+                            </div>
+                            
                               <div class="blog-post-title">
-                                  <p class="card-text">
-                                      {{ $post->title }}
-                                  </p>
+                                <h4 class="card-text">
+                                    {{ $post->title }}
+                                </h4>
                               </div>
                               <div class="blog-post-meta">
                                   <ul>
@@ -123,19 +124,23 @@
         <div class="col-12">
           <article class="featured-post">
             <div class="featured-post-content">
-              <div class="featured-post-author">
-                <img src="images/author.png" alt="author" />
-                <p>By <span>Mary Astor</span></p>
-              </div>
-              <a href="single-blog.html" class="featured-post-title">
-                Every Next Level of Your Life Will Demand
-              </a>
-              <ul class="featured-post-meta">
-                <li>
-                  <i class="fa fa-clock-o"></i>
-                  October 19, 2020 - 3 min read
-                </li>
-              </ul>
+                <div class="featured-post-author d-flex align-items-center">
+                    <img 
+                      src="images/Blogo.png" 
+                      alt="author" 
+                      class="rounded-circle border border-dark" 
+                      style="width: 100px; height: 100px; object-fit: cover;" 
+                    />
+                    
+                  </div>
+                  <p class="ms-3">By <span>Blogge</span></p>
+                <h1>Every Next Level of Your Life Will Demand</h1>
+                <ul class="featured-post-meta">
+                    <li>
+                      <i class="fa fa-clock-o"></i>
+                     from now
+                    </li>
+                  </ul>
             </div>
             <div class="featured-post-thumb">
               <img src="https://img.freepik.com/free-vector/hand-drawn-digital-natives-illustration_23-2151197121.jpg"

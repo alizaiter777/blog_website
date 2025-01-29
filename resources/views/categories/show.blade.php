@@ -21,9 +21,9 @@
                               @endif
                             </div>
                             <div class="blog-post-title">
-                                <p class="card-text">
+                                <h4 class="card-text">
                                     {{ $post->title }}
-                                </p>
+                                </h4>
                             </div>
                             <div class="blog-post-meta">
                                 <ul>
@@ -33,7 +33,7 @@
                                 </ul>
                             </div>
                             <p>
-                                {{ Str::limit($post->content, 100) }}
+                                {{ Str::limit($post->content, 20) }}
                             </p>
                             <p class="mt-2">
                                 <i class="fas fa-thumbs-up text-success me-1"></i>

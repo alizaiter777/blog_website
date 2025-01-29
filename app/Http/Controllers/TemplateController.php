@@ -43,4 +43,10 @@ public function addComment(Request $request, $postId)
     // Redirect back to the post's info page with a success message
     return redirect()->route('info', ['id' => $postId])->with('success', 'Comment added!');
 }
+
+public function about(){
+        
+    return view('frontend.about');
+}
+
 }

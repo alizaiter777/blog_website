@@ -42,7 +42,6 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Contact</a></li>
                 
                     @auth
                         <!-- User is logged in -->
@@ -74,23 +73,27 @@
         @yield('featured')
     </section>
 
-    <div class="col-md-4 ms-auto">
+    @if (!request()->is('about','profile'))
+    <div class="container d-flex justify-content-center">
+        <div class="col-md-6">
         <form method="get" action="/search">
             <div class="input-group input-group-sm">
                 <input 
                     type="text" 
-                    class="form-control rounded-start" 
+                    class="form-control rounded-start w-70" 
                     name="search" 
                     placeholder="Search..." 
                     value="{{ request()->input('search') ?? '' }}"
                     aria-label="Search">
+
                 <button 
                     type="submit" 
                     class="btn btn-primary rounded-end">Search</button>
             </div>
         </form>
     </div>
-    
+    </div>
+    @endif
     
     <!-- Main Content -->
     <section class="content">
@@ -107,14 +110,14 @@
 
     <!-- Instagram Section -->
     <section class="instagram">
-        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> <span>@Mary_Astor</span></a>
+        <a href="https://www.instagram.com/blogger/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i> <span>@Blogge</span></a>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="instagram-item">
                         @for ($i = 1; $i <= 6; $i++)
                             <div class="instagram-item-thum">
-                                <img src="{{ asset('images/blog/case-studies-' . $i . '.png') }}" alt="Image {{ $i }}">
+                                <img src="{{ asset('images/blog/p' . $i . '.png') }}" alt="Image {{ $i }}">
                             </div>
                         @endfor
                     </div>
@@ -139,22 +142,11 @@
                         <ul class="navbar-nav">
                             <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 mx-auto">
-                    <div class="sociale-icon">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copy-right">
@@ -166,13 +158,10 @@
         </div>
     </footer>
 
-    <!-- Google Map -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9rV6yesIygoVKTD6QLf_iCa9eiIIHqZ0&libraries=geometry"></script>
     <!-- Vendor JS -->
     <script src="{{ asset('vendor/jQuery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/slick/slick.min.js') }}"></script>
-    <script src="{{ asset('vendor/g-map/gmap.js') }}"></script>
     <!-- Main JS -->
     <script src="{{ asset('js/script.js') }}"></script>
 

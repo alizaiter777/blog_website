@@ -49,7 +49,8 @@
                         <td class="align-middle">{{$post->user->id ?? 'N/A' }}</td> <!-- Display user's name -->
                         <td class="align-middle">{{$post->category->id ?? 'N/A' }}</td> <!-- Display category's name -->
                         <td class="align-middle">{{$post->title}}</td>
-                        <td class="align-middle">{{$post->content}}</td>
+                        <td class="align-middle">  {{ Str::limit($post->content, 20) }}
+                        </td>
                         <td class="align-middle">
                             @if ($post->image)
                                 <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image" style="max-width: 100px; height: auto;">

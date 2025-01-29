@@ -8,12 +8,16 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\LikeController;
+
+
 Route::get('/post/share/{id}', [PostController::class, 'share'])->name('post.share');
 
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/search',[PostController::class,'search']);
 Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categories.show');
+
+Route::get('/about',[TemplateController::class,'about'])->name('about');;
 
 Route::get('/',[TemplateController::class,'index']);
 Route::get('/', [TemplateController::class, 'home'])->name('home');
@@ -33,6 +37,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/delete/{id}',[ProfileController::class,'delete'])->name('profile.delete');
 
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

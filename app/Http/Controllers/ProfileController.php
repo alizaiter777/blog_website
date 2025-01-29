@@ -29,7 +29,18 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
-
+    public function delete($id){
+        $posts=Post::findOrFail($id)->delete();
+        if($posts){
+            session()->flash('success','Post Deleted Successfully');
+            return redirect(route('profile.show'));
+    
+        }
+        else{
+            session()->flash('error','Post Not Delete Successfully');
+            return redirect(route('/profile.show'));
+        }
+    }
     /**
      * Update the user's profile information.
      */

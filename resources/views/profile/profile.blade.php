@@ -38,9 +38,9 @@
                                     <a href="category.html">{{ $post->category->name }}</a>
                                 </div>
                                 <div class="blog-post-title">
-                                    <p class="card-text">
+                                    <h4 class="card-text">
                                         {{ $post->title }}
-                                    </p>
+                                    </h4>
                                 </div>
                                 <div class="blog-post-meta">
                                     <ul>
@@ -62,7 +62,11 @@
                                 </a>
                             </div>
                         </article>
+                        <div style="margin-left: 800px">
+                            <a href="{{ route('profile.delete', ['id' => $post->id]) }}" type="button" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
                     </div>
+
                 </div>
             @endforeach
         @endif
