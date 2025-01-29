@@ -10,27 +10,25 @@ use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\LikeController;
 
 
-Route::get('/post/share/{id}', [PostController::class, 'share'])->name('post.share');
 
-Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/search',[PostController::class,'search']);
 Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categories.show');
 
-Route::get('/about',[TemplateController::class,'about'])->name('about');;
-
 Route::get('/',[TemplateController::class,'index']);
 Route::get('/', [TemplateController::class, 'home'])->name('home');
 Route::get('/info/{id}', [TemplateController::class, 'info'])->name('info');
-
-Route::get('/', [PostController::class, 'showPostsToFront'])->name('home');
-
+Route::get('/about',[TemplateController::class,'about'])->name('about');;
 Route::post('/post/{id}/comment', [TemplateController::class, 'addComment'])->name('addComment');
+
+
 Route::post('/post/{post}/like', [PostController::class, 'like'])->name('post.like');
 Route::post('/post/{post}/unlike', [PostController::class, 'unlike'])->name('post.unlike');
-
+Route::get('/', [PostController::class, 'showPostsToFront'])->name('home');
 Route::get('/post/{id}', [PostController::class, 'showPost'])->name('post.show');
 
+Route::get('/post/share/{id}', [PostController::class, 'share'])->name('post.share');
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

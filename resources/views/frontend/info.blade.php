@@ -22,12 +22,17 @@
       </ul>
       
       <!-- Image -->
-      <div class="rounded-lg overflow-hidden mb-6">
-          <img  src="{{ asset('storage/' . $post->image) }}" alt="Surfing" class="w-full">
-      </div>
+      
       
       <!-- Content -->
+      <div class="d-flex justify-content-center align-items-center rounded-lg overflow-hidden mb-6">
       
+        <img  src="{{ asset('storage/' . $post->image) }}" 
+        alt="Surfing" 
+          class="w-full h-auto object-cover"
+        >
+        
+      </div>
       
     
   </div>
