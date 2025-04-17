@@ -34,12 +34,9 @@ Home Page:
 
 ![Screenshot (112)](https://github.com/user-attachments/assets/fcce72ac-4145-430f-8e45-203455ea2fc7)
 
+![Screenshot (113)](https://github.com/user-attachments/assets/80239de3-8797-408a-bd50-07abf3319f1f)
 
-
-
-
-
-
+![Screenshot (114)](https://github.com/user-attachments/assets/ddfdff3e-d400-4cf8-aa75-a77b544fab46)
 
 
 
