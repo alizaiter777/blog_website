@@ -37,6 +37,26 @@ Home Page:
 ![Screenshot (113)](https://github.com/user-attachments/assets/80239de3-8797-408a-bd50-07abf3319f1f)
 
 ![Screenshot (114)](https://github.com/user-attachments/assets/ddfdff3e-d400-4cf8-aa75-a77b544fab46)
+Login page :
+![Screenshot (123)](https://github.com/user-attachments/assets/c005975b-519a-4158-809d-1ab2548df61c)
+Profile Page :
+![Screenshot (116)](https://github.com/user-attachments/assets/f64aeef0-cf92-4738-952a-4b7c497470cb)
+Manage profile :
+![Screenshot (117)](https://github.com/user-attachments/assets/9d864792-57ea-47e5-a9a6-910bcb458ffd)
+Add Post :
+![Screenshot (119)](https://github.com/user-attachments/assets/37315888-997b-45f6-8274-ebbbaa7978a4)
+Category :
+![Screenshot (118)](https://github.com/user-attachments/assets/b55ae3cd-6bc2-415a-994b-188ebd46cefb)
+Post Info:
+![Screenshot (115)](https://github.com/user-attachments/assets/1ccba89e-a811-4f70-9b78-b44b019220e8)
+
+
+
+
+
+
+
+
 
 
 
