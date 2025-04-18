@@ -46,17 +46,16 @@ Manage profile :
 Add Post :
 ![Screenshot (119)](https://github.com/user-attachments/assets/37315888-997b-45f6-8274-ebbbaa7978a4)
 Category :
-![Screenshot (118)](https://github.com/user-attachments/assets/b55ae3cd-6bc2-415a-994b-188ebd46cefb)
+![Screenshot (118)](https://github.com/user-attachments/assets/22cfdd79-68dc-4b73-9871-19d7d707813a)
 Post Info:
 ![Screenshot (115)](https://github.com/user-attachments/assets/1ccba89e-a811-4f70-9b78-b44b019220e8)
-
-
-
-
-
-
-
-
+Admin :
+List users :
+![Screenshot (120)](https://github.com/user-attachments/assets/6cc0926a-3afe-41fc-8bd3-479f014dc60c)
+List category :
+![Screenshot (121)](https://github.com/user-attachments/assets/cafb8b09-bb7a-4cce-8eba-5600a11171b2)
+List posts :
+![Screenshot (122)](https://github.com/user-attachments/assets/d7fa161f-8a83-45de-b95b-cf69e8c7ad63)
 
 
 
