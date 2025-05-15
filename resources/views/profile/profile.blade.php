@@ -35,8 +35,9 @@
                             </div>
                             <div class="blog-post-content">
                                 <div class="blog-post-tag">
-                                    <a href="category.html">{{ $post->category->name }}</a>
-                                </div>
+                                    <a href="{{ route('categories.show', $post->category->id) }}" class="btn btn-primary btn-sm">
+                                        {{ $post->category->name }}
+                                    </a>                                </div>
                                 <div class="blog-post-title">
                                     <h4 class="card-text">
                                         {{ $post->title }}

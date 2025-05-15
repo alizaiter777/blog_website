@@ -6,8 +6,7 @@
 
 <div class="flex items-center justify-center min-h-screen bg-gray-50">
   <div class="max-w-4xl w-full bg-white p-6 rounded-lg shadow-md">
-      <!-- Tag -->
-      <a href="#" class="inline-block bg-black text-white text-xs uppercase px-3 py-1 rounded-full mb-4">{{ $post->category->name }}</a>
+     
       
       <!-- Title -->
       <h1 class="text-4xl font-bold text-gray-800 leading-tight mb-4 ">
