@@ -1,3 +1,64 @@
+Blog Website
+This project is a fully functional blog website built with Laravel for the backend and HTML, CSS, and JavaScript for the frontend.
+
+🌟 Key Features
+User authentication (login/register)
+
+Create and manage personal profiles
+
+Add, edit, and delete blog posts
+
+React to and comment on posts
+
+Share posts with others
+
+Search for posts by topics
+
+Trending Section: The most liked post appears in the trending section on the homepage
+
+🔐 Admin Panel
+The website includes a powerful admin panel with full management capabilities:
+
+View all users and their posts
+
+Add, edit, or delete any post
+
+Delete users, posts
+
+Monitor all user activities and content
+
+Home Page: 
+
+
+
+
+![Screenshot (112)](https://github.com/user-attachments/assets/fcce72ac-4145-430f-8e45-203455ea2fc7)
+
+![Screenshot (113)](https://github.com/user-attachments/assets/80239de3-8797-408a-bd50-07abf3319f1f)
+
+![Screenshot (114)](https://github.com/user-attachments/assets/ddfdff3e-d400-4cf8-aa75-a77b544fab46)
+Login page :
+![Screenshot (123)](https://github.com/user-attachments/assets/c005975b-519a-4158-809d-1ab2548df61c)
+Profile Page :
+![Screenshot (116)](https://github.com/user-attachments/assets/f64aeef0-cf92-4738-952a-4b7c497470cb)
+Manage profile :
+![Screenshot (117)](https://github.com/user-attachments/assets/9d864792-57ea-47e5-a9a6-910bcb458ffd)
+Add Post :
+![Screenshot (119)](https://github.com/user-attachments/assets/37315888-997b-45f6-8274-ebbbaa7978a4)
+Category :
+![Screenshot (118)](https://github.com/user-attachments/assets/22cfdd79-68dc-4b73-9871-19d7d707813a)
+Post Info:
+![Screenshot (115)](https://github.com/user-attachments/assets/1ccba89e-a811-4f70-9b78-b44b019220e8)
+Admin :
+List users :
+![Screenshot (120)](https://github.com/user-attachments/assets/6cc0926a-3afe-41fc-8bd3-479f014dc60c)
+List category :
+![Screenshot (121)](https://github.com/user-attachments/assets/cafb8b09-bb7a-4cce-8eba-5600a11171b2)
+List posts :
+![Screenshot (122)](https://github.com/user-attachments/assets/d7fa161f-8a83-45de-b95b-cf69e8c7ad63)
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
